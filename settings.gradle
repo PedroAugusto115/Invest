@@ -1,0 +1,5 @@
+include ':app'
+//core
+include ':core'
+//features
+include ':simulation'

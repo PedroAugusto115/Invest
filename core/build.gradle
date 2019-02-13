@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+apply from: '../core.gradle'
+
+dependencies {
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$core.kotlinVersion"
+    api "com.android.support:appcompat-v7:$library.supportVersion"
+    api "com.android.support.constraint:constraint-layout:$library.constraintVersion"
+    api "android.arch.navigation:navigation-fragment-ktx:$library.androidNavigationVersion"
+    api "android.arch.navigation:navigation-ui-ktx:$library.androidNavigationVersion"
+
+    testImplementation "junit:junit:$test.jUnitVersion"
+
+    androidTestImplementation "com.android.support.test:runner:$androidTest.testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$androidTest.espressoVersion"
+}

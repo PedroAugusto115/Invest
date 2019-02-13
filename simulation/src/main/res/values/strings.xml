@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="simulation_title">Simulação</string>
+
+    <!-- Form Fragment strings -->
+    <string name="frag_form_value_label">Quanto você gostaria de aplicar?*</string>
+    <string name="frag_form_value_hint">R$</string>
+    <string name="frag_form_due_date_label">Qual a data de vencimento do investimento?*</string>
+    <string name="frag_form_due_date_hint">dia/mês/ano</string>
+    <string name="frag_form_percent_label">Qual o percentual do CDI do investimento?*</string>
+    <string name="frag_form_percent_hint">100%</string>
+    <string name="frag_form_button_text">Simular</string>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/simulation_nav"
+        app:startDestination="@id/formFragment">
+
+    <fragment
+            android:id="@+id/formFragment"
+            android:name="challenge.invest.simulation.ui.FormFragment"
+            android:label="FormFragment"
+            tools:layout="@layout/fragment_form">
+        <action android:id="@+id/action_formFragment_to_resultFragment" app:destination="@id/resultFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/resultFragment"
+            android:name="challenge.invest.simulation.ui.ResultFragment"
+            android:label="ResultFragment"
+            tools:layout="@layout/fragment_result"/>
+</navigation>

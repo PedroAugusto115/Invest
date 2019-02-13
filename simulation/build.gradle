@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: '../core.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation project(':core')
+}

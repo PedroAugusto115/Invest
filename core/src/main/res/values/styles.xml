@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="textRegular">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="textRegular.16">
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+    </style>
+
+    <style name="textRegular.24">
+        <item name="android:textSize">@dimen/dimen_24sp</item>
+    </style>
+
+</resources>
