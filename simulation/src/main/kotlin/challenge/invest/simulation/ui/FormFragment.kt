@@ -49,4 +49,10 @@ class FormFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        viewModel.simulationResponse.data.removeObservers(this)
+        viewModel.simulationResponse.errorMessage.removeObservers(this)
+        super.onPause()
+    }
+
 }

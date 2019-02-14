@@ -1,8 +1,8 @@
 package challenge.invest.core.service
 
-import android.arch.lifecycle.MutableLiveData
+import challenge.invest.core.livedata.SingleLiveEvent
 
 class ApiResponse<T> {
-    val errorMessage = MutableLiveData<String>()
-    val data = MutableLiveData<T>()
+    val errorMessage = SingleLiveEvent<String>()
+    val data = SingleLiveEvent<T>()
 }
