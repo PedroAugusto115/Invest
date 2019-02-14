@@ -5,7 +5,6 @@ import android.content.Context
 import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
 import android.support.constraint.ConstraintLayout
-import android.text.InputType
 import android.util.AttributeSet
 import android.view.View
 import android.widget.EditText
@@ -25,8 +24,8 @@ class DefaultInputText @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val titleLabel by bindView<TextView>(R.id.txt_label)
-    private val inputView by bindView<EditText>(R.id.txt_input)
     private val viewReference by bindView<View>(R.id.txt_reference)
+    val inputView by bindView<EditText>(R.id.txt_input)
 
     var state = MutableLiveData<ValueState>().apply { value = ValueState.DEFAULT }
 
@@ -46,13 +45,6 @@ class DefaultInputText @JvmOverloads constructor(
 
         inputView.setOnFocusChangeListener { _, hasFocus -> setIsFocused(hasFocus) }
         inputView.addTextChanged { validateValue() }
-    }
-
-    fun getText(): String = inputView.text.toString()
-
-    fun applyMask(mask: (EditText) -> Unit) {
-        inputView.inputType = InputType.TYPE_CLASS_TEXT
-        mask(inputView)
     }
 
     private fun setIsFocused(newFocus: Boolean) {

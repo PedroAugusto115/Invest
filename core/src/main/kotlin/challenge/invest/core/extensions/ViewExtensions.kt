@@ -11,7 +11,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.TextView
+import java.text.NumberFormat
+import java.util.Locale
+
+private const val START_RANGE = 3
+private const val END_RANGE = 2
+private const val HUNDRED = 100
+
+private const val PERCENT_MAX_LENGTH = 4
+private const val DATE_MAX_LENGTH = 10
+
+private const val DATE_FIRST_SLASH_POSITION = 2
+private const val DATE_LAST_SLASH_POSITION = 5
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -21,7 +34,7 @@ fun View.hideKeyboard() {
 fun ViewGroup.inflate(@LayoutRes layout: Int, attachToRoot: Boolean = true) =
     LayoutInflater
         .from(context)
-        .inflate(layout, this, attachToRoot)
+        .inflate(layout, this, attachToRoot)!!
 
 fun TextView.color(@ColorRes color: Int) {
     setTextColor(ContextCompat.getColor(context, color))
@@ -54,6 +67,97 @@ fun TextView.addTextChanged(
 
         override fun afterTextChanged(editable: Editable?) {
             afterTextChanged?.invoke(editable.toString())
+        }
+    })
+}
+
+fun EditText.brazilianCurrencyFormat() {
+
+    this.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            this@brazilianCurrencyFormat.removeTextChangedListener(this)
+
+            val cleanString = s.toString()
+                .replace("R$", "")
+                .replace(",", "")
+                .replace(".", "")
+
+            val parsed = cleanString.toDouble()
+            var formatted = NumberFormat
+                .getCurrencyInstance(Locale("pt_BR", "BR"))
+                .format( parsed / HUNDRED )
+
+            formatted = formatted.run {
+                replaceRange(length - START_RANGE, length - END_RANGE, ",")
+            }
+
+            this@brazilianCurrencyFormat.setText(formatted)
+            this@brazilianCurrencyFormat.setSelection(formatted.length)
+            this@brazilianCurrencyFormat.addTextChangedListener(this)
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            //
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            //
+        }
+    })
+}
+
+fun EditText.dateFormat() {
+
+    this.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            //
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            //
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            this@dateFormat.removeTextChangedListener(this)
+            var date = s.toString()
+            if ((before == 0) &&
+                (date.length == DATE_FIRST_SLASH_POSITION ||
+                        date.length == DATE_LAST_SLASH_POSITION)) {
+                date += "/"
+            }
+
+            if (date.length > DATE_MAX_LENGTH) {
+                date = date.removeRange(DATE_MAX_LENGTH - 1, DATE_MAX_LENGTH)
+            }
+            this@dateFormat.setText(date)
+            this@dateFormat.setSelection(date.length)
+            this@dateFormat.addTextChangedListener(this)
+        }
+    })
+}
+
+fun EditText.percentFormat() {
+
+    this.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            //
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            //
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            this@percentFormat.removeTextChangedListener(this)
+            var percent = s.toString().replace("%", "")
+            if (percent.length == PERCENT_MAX_LENGTH) {
+                percent = percent.removeRange(PERCENT_MAX_LENGTH - 1, PERCENT_MAX_LENGTH)
+            }
+
+            if (before == 0) percent += "%"
+            this@percentFormat.setText(percent)
+            this@percentFormat.setSelection(percent.length)
+            this@percentFormat.addTextChangedListener(this)
         }
     })
 }
