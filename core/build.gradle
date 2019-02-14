@@ -2,11 +2,15 @@ apply plugin: 'com.android.library'
 apply from: '../core.gradle'
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$core.kotlinVersion"
-    api "com.android.support:appcompat-v7:$library.supportVersion"
-    api "com.android.support.constraint:constraint-layout:$library.constraintVersion"
     api "android.arch.navigation:navigation-fragment-ktx:$library.androidNavigationVersion"
     api "android.arch.navigation:navigation-ui-ktx:$library.androidNavigationVersion"
+    api "com.android.support:appcompat-v7:$library.supportVersion"
+    api "com.android.support.constraint:constraint-layout:$library.constraintVersion"
+    api "com.squareup.okhttp3:okhttp:$service.okhttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$service.okhttpVersion"
+    api "com.squareup.retrofit2:retrofit:$service.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$service.retrofitVersion"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$core.kotlinVersion"
 
     testImplementation "junit:junit:$test.jUnitVersion"
 

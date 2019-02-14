@@ -11,10 +11,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    def baseUrl = '"https://api-simulator-calc.easynvest.com.br"'
+
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            testCoverageEnabled true
+
+            buildConfigField "String", "SERVICE_URL", baseUrl
+        }
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "SERVICE_URL", baseUrl
         }
     }
 

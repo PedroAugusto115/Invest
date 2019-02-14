@@ -5,4 +5,5 @@ apply plugin: 'kotlin-android-extensions'
 
 dependencies {
     implementation project(':core')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
