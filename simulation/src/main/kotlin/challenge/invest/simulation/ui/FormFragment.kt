@@ -48,11 +48,4 @@ class FormFragment : Fragment() {
             Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
         }
     }
-
-    override fun onPause() {
-        viewModel.simulationResponse.data.removeObservers(this)
-        viewModel.simulationResponse.errorMessage.removeObservers(this)
-        super.onPause()
-    }
-
 }
