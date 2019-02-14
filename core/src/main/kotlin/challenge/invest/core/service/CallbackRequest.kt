@@ -7,7 +7,7 @@ import retrofit2.Response
 abstract class CallbackRequest<T> : Callback<T> {
 
     override fun onResponse(call: Call<T>?, response: Response<T>?) {
-        if(response != null && response.isSuccessful) {
+        if (response != null && response.isSuccessful) {
             success(response)
             return
         }

@@ -21,6 +21,9 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Toast.makeText(activity, viewModel.simulationResponse.data.value?.annualGrossRateProfit.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            activity,
+            viewModel.simulationResponse.data.value?.annualGrossRateProfit.toString(),
+            Toast.LENGTH_SHORT).show()
     }
 }

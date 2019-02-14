@@ -14,6 +14,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$core.gradleVersion"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$core.detektVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$core.kotlinVersion"
     }
 }
@@ -48,7 +49,8 @@ subprojects {
     apply from: "$rootDir/tools/kotlin-files.gradle"
 }
 
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: "$rootDir/tools/detekt.gradle"

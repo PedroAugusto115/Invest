@@ -1,0 +1,15 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    version = "$core.detektVersion"
+    profile("main") {
+        config = "$rootDir${File.separatorChar}tools${File.separatorChar}linters${File.separatorChar}detekt.yml"
+        filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+        output = "$rootDir${File.separatorChar}build${File.separatorChar}reports${File.separatorChar}detekt"
+        outputName = "detekt"
+    }
+}
+
+dependencies {
+    detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$core.detektVersion"
+}

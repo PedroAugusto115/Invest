@@ -22,9 +22,7 @@ object SimulationRepository {
                 override fun failure(throwable: Throwable) {
                     simulationResponse.errorMessage.postValue(throwable.message)
                 }
-
             }
         )
     }
-
 }

@@ -9,7 +9,7 @@ import challenge.invest.core.R
 import challenge.invest.core.extensions.bindView
 import challenge.invest.core.extensions.inflate
 
-class ViewToolbar  @JvmOverloads constructor(
+class ViewToolbar @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
     defStyleAttr: Int = 0

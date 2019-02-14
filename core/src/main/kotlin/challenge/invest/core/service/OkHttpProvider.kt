@@ -13,7 +13,7 @@ class OkHttpProvider private constructor() {
         private var okHttpClient: OkHttpClient? = null
 
         fun getInstance() : OkHttpClient {
-            if(okHttpClient == null) {
+            if (okHttpClient == null) {
                 OkHttpProvider()
             }
             return okHttpClient!!
@@ -26,8 +26,11 @@ class OkHttpProvider private constructor() {
             .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
             .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().apply {
-                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.HEADERS
-                else HttpLoggingInterceptor.Level.NONE
+                level = if (BuildConfig.DEBUG) {
+                    HttpLoggingInterceptor.Level.BODY
+                } else {
+                    HttpLoggingInterceptor.Level.NONE
+                }
             })
 
         okHttpClient = builder.build()

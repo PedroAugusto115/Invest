@@ -13,5 +13,4 @@ internal object RemoteData {
                     .build(url, OkHttpProvider.getInstance())
                     .also { instance = it }
         }
-
 }

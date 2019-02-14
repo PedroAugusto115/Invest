@@ -10,7 +10,6 @@ import challenge.invest.simulation.viewmodel.SimulationViewModel
 class SimulationActivity : AppCompatActivity() {
 
     private val navController by lazy { findNavController(R.id.fragment_container) }
-    private val viewModel by provideSharedViewModel(SimulationViewModel::class)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

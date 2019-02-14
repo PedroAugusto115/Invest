@@ -11,7 +11,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import challenge.invest.core.R
-import challenge.invest.core.extensions.*
+import challenge.invest.core.extensions.addTextChanged
+import challenge.invest.core.extensions.backgroundColor
+import challenge.invest.core.extensions.bindView
+import challenge.invest.core.extensions.changeHeight
+import challenge.invest.core.extensions.color
+import challenge.invest.core.extensions.inflate
 
 class DefaultInputText @JvmOverloads constructor(
     context: Context,
