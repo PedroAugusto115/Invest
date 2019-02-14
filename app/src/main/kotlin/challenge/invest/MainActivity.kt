@@ -1,19 +1,16 @@
-package challenge.invest.simulation.ui
+package challenge.invest
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
-import challenge.invest.core.viewmodel.provideSharedViewModel
-import challenge.invest.simulation.R
-import challenge.invest.simulation.viewmodel.SimulationViewModel
 
-class SimulationActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val navController by lazy { findNavController(R.id.fragment_container) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simulation)
+        setContentView(R.layout.activity_main)
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()

@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply from: '../core.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion core.sdkVersion
@@ -29,4 +31,5 @@ android {
 dependencies {
     implementation project(':core')
     implementation project(':simulation')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
