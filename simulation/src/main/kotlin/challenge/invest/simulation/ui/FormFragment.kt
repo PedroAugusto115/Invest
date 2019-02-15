@@ -57,8 +57,6 @@ class FormFragment : Fragment() {
         dueDateEditText.inputView.dateFormat()
         percentEditText.inputView.percentFormat()
 
-
-
         simulateButton.setOnClickListener {
             callSimulation()
         }
@@ -70,14 +68,14 @@ class FormFragment : Fragment() {
                 .replace(".", "")
                 .replace(",", ".")
 
-            when(value.toFloatOrNull()) {
+            when (value.toFloatOrNull()) {
                 null -> false
                 else -> value.toFloat() > 0.00
             }
         }
 
         percentEditText.setValidationListener {
-            when(it.toIntOrNull()) {
+            when (it.toIntOrNull()) {
                 null -> false
                 else -> it.toInt() > 0
             }
