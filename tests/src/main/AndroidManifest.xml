@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="challenge.investtests">
+
+    <application
+            android:theme="@style/Theme.AppCompat">
+
+        <activity android:name="challenge.invest.BaseTestFragmentActivity" />
+
+        <activity android:name="challenge.invest.BaseCustomViewActivityTest" />
+
+    </application>
+</manifest>

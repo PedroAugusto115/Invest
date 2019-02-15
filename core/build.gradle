@@ -12,8 +12,6 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$service.retrofitVersion"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$core.kotlinVersion"
 
-    testImplementation "junit:junit:$test.jUnitVersion"
-
-    androidTestImplementation "com.android.support.test:runner:$androidTest.testRunnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$androidTest.espressoVersion"
+    testImplementation project(':tests')
+    androidTestImplementation project(':tests')
 }

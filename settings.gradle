@@ -1,5 +1,5 @@
 include ':app'
 //core
-include ':core'
+include ':core', ':tests'
 //features
 include ':simulation'

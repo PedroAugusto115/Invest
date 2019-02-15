@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply from: '../core.gradle'
+
+dependencies {
+    api "com.android.support:appcompat-v7:$library.supportVersion"
+
+    api "junit:junit:$test.jUnitVersion"
+
+    api "com.android.support.test:rules:$androidTest.testRunnerVersion"
+    api "com.android.support.test:runner:$androidTest.testRunnerVersion"
+    api "com.android.support.test.espresso:espresso-core:$androidTest.espressoVersion"
+    api "com.squareup.okhttp3:mockwebserver:$service.okhttpVersion"
+    api "junit:junit:$test.jUnitVersion"
+}
