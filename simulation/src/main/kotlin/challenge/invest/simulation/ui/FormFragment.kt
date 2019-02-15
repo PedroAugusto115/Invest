@@ -1,5 +1,7 @@
 package challenge.invest.simulation.ui
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
@@ -13,6 +15,7 @@ import challenge.invest.core.extensions.brazilianCurrencyFormat
 import challenge.invest.core.extensions.currencyToServer
 import challenge.invest.core.extensions.dateFormat
 import challenge.invest.core.extensions.hideKeyboard
+import challenge.invest.core.extensions.isValidDate
 import challenge.invest.core.extensions.observeNonNull
 import challenge.invest.core.extensions.percentFormat
 import challenge.invest.core.extensions.toDateServer
@@ -46,6 +49,7 @@ class FormFragment : Fragment() {
         showContent()
         initObservables()
         initViews()
+        setFieldsValidation()
     }
 
     private fun initViews() {
@@ -53,8 +57,34 @@ class FormFragment : Fragment() {
         dueDateEditText.inputView.dateFormat()
         percentEditText.inputView.percentFormat()
 
+
+
         simulateButton.setOnClickListener {
             callSimulation()
+        }
+    }
+
+    private fun setFieldsValidation() {
+        amountEditText.setValidationListener {
+            val value = it.replace("R$", "")
+                .replace(".", "")
+                .replace(",", ".")
+
+            when(value.toFloatOrNull()) {
+                null -> false
+                else -> value.toFloat() > 0.00
+            }
+        }
+
+        percentEditText.setValidationListener {
+            when(it.toIntOrNull()) {
+                null -> false
+                else -> it.toInt() > 0
+            }
+        }
+
+        dueDateEditText.setValidationListener {
+            it.isValidDate()
         }
     }
 
@@ -66,6 +96,16 @@ class FormFragment : Fragment() {
         viewModel.simulationResponse.errorMessage.observeNonNull(this) {
             showError()
         }
+
+        setContinueButtonListener(amountEditText.state)
+        setContinueButtonListener(dueDateEditText.state)
+        setContinueButtonListener(percentEditText.state)
+    }
+
+    private fun <T> setContinueButtonListener(liveData: MutableLiveData<T>) {
+        liveData.observe(this, Observer {
+            shouldEnableButton()
+        })
     }
 
     private fun callSimulation() {
@@ -76,6 +116,13 @@ class FormFragment : Fragment() {
         simulateButton.hideKeyboard()
         viewModel.getSimulation(amount, rate, date)
         showLoading()
+    }
+
+    private fun shouldEnableButton() {
+        simulateButton.isEnabled =
+            (amountEditText.state.value == DefaultInputText.ValueState.VALID) and
+                    (dueDateEditText.state.value == DefaultInputText.ValueState.VALID)
+                    (percentEditText.state.value == DefaultInputText.ValueState.VALID)
     }
 
     private fun showContent() {

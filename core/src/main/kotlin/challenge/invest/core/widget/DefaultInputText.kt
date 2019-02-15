@@ -52,6 +52,10 @@ class DefaultInputText @JvmOverloads constructor(
         setFieldState()
     }
 
+    fun setValidationListener(validation: (String) -> Boolean) {
+        validationListener = validation
+    }
+
     private fun validateValue() {
         state.value = when {
             inputView.text.toString().isNotBlank() -> {
