@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import challenge.invest.core.extensions.HUNDRED
 import challenge.invest.core.extensions.bindView
 import challenge.invest.core.extensions.brazilianCurrencyFormat
 import challenge.invest.core.extensions.currencyToServer
@@ -66,11 +67,11 @@ class FormFragment : Fragment() {
         amountEditText.setValidationListener {
             val value = it.replace("R$", "")
                 .replace(".", "")
-                .replace(",", ".")
+                .replace(",", "")
 
             when (value.toFloatOrNull()) {
                 null -> false
-                else -> value.toFloat() > 0.00
+                else -> value.toFloat() / HUNDRED > 0.00
             }
         }
 

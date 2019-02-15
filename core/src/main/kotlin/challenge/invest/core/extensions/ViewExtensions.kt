@@ -18,7 +18,6 @@ import java.util.Locale
 
 private const val START_RANGE = 3
 private const val END_RANGE = 2
-private const val HUNDRED = 100
 
 private const val PERCENT_MAX_LENGTH = 4
 private const val DATE_MAX_LENGTH = 10

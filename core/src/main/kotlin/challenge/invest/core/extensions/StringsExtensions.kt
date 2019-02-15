@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+const val HUNDRED = 100
+
 fun String.toDateDisplay() = this.toDate("yyyy-MM-dd'T'HH:mm:ss", "dd/MM/yyyy")
 
 fun String.toDateServer() = this.toDate("dd/MM/yyyy", "yyyy-MM-dd")
@@ -28,5 +30,5 @@ fun String.isValidDate() = try {
 fun String.currencyToServer() =
     this.replace("R$", "")
         .replace(".", "")
-        .replace(",", ".")
-        .toFloat()
+        .replace(",", "")
+        .toFloat() / HUNDRED
