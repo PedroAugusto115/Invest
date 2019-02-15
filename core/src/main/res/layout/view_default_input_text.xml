@@ -8,7 +8,7 @@
         tools:parentTag="android.support.constraint.ConstraintLayout">
 
     <TextView
-            style="@style/textRegular.16"
+            style="@style/textRegular.14"
             android:id="@+id/txt_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

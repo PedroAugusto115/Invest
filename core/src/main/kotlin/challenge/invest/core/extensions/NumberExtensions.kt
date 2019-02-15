@@ -1,7 +1,7 @@
 package challenge.invest.core.extensions
 
 import java.text.NumberFormat
-import java.util.*
+import java.util.Locale
 
 private const val START_RANGE = 3
 private const val END_RANGE = 2

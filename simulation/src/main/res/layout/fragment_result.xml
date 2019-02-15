@@ -46,7 +46,7 @@
             android:id="@+id/lbl_initial_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_36dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
             android:label="@string/frag_result_lbl_initial_value"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +96,7 @@
             android:id="@+id/lbl_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_36dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
             android:label="@string/frag_result_lbl_date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -151,5 +151,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_annual_revenue"/>
+
+    <Button
+            style="@style/buttonRegular"
+            android:id="@+id/frag_result_button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:text="@string/frag_result_btn_again"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_period_profitability"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

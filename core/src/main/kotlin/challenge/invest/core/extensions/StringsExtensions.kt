@@ -15,6 +15,8 @@ fun String.toDate(input: String, output: String): String {
     return outputFormat.format(d)
 }
 
-fun String.currencyToServer() {
-    this.replace("R$", "").replace(".", "").replace(",", ".")
-}
+fun String.currencyToServer() =
+    this.replace("R$", "")
+        .replace(".", "")
+        .replace(",", ".")
+        .toFloat()

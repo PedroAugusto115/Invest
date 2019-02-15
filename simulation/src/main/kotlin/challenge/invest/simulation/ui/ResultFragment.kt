@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import challenge.invest.core.extensions.bindView
 import challenge.invest.core.extensions.toBrazilianCurrency
 import challenge.invest.core.extensions.toDateDisplay
@@ -33,6 +35,8 @@ class ResultFragment : Fragment() {
     private val lblAnnualRevenue by bindView<LabeledValueView>(R.id.lbl_annual_revenue)
     private val lblPeriodProfitability by bindView<LabeledValueView>(R.id.lbl_period_profitability)
 
+    private val backButton by bindView<Button>(R.id.frag_result_button)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,6 +59,10 @@ class ResultFragment : Fragment() {
             lblCDIPercent.setText(it.investmentParameter.rate.toPercent())
             lblAnnualRevenue.setText(it.annualGrossRateProfit.toPercent())
             lblPeriodProfitability.setText(it.annualNetRateProfit.toPercent())
+        }
+
+        backButton.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

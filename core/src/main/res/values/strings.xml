@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Base</string>
+
+    <string name="error_view_label">Ocorreu um erro</string>
+    <string name="try_again_label">Tente novamente</string>
+    <string name="back_label">Voltar</string>
 </resources>

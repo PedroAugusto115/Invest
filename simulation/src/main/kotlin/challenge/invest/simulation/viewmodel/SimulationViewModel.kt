@@ -9,7 +9,7 @@ class SimulationViewModel: ViewModel() {
 
     val simulationResponse = ApiResponse<SimulationResponse>()
 
-    fun getSimulation() {
-        SimulationRepository.simulate(simulationResponse)
+    fun getSimulation(investedAmount: Float, rate: Int, maturityDate: String) {
+        SimulationRepository.simulate(simulationResponse, investedAmount, rate, maturityDate)
     }
 }

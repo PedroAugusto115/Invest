@@ -8,8 +8,16 @@ import retrofit2.Response
 
 object SimulationRepository {
 
-    fun simulate(simulationResponse: ApiResponse<SimulationResponse>) {
-        RemoteData.getInstance().simulate(investedAmount = 32323, rate = 123, maturityDate = "2023-03-03" ).enqueue(
+    fun simulate(
+        simulationResponse: ApiResponse<SimulationResponse>,
+        investedAmount: Float,
+        rate: Int,
+        maturityDate: String) {
+        RemoteData.getInstance().simulate(
+            investedAmount = investedAmount.toLong(),
+            rate = rate,
+            maturityDate = maturityDate )
+            .enqueue(
             object : CallbackRequest<SimulationResponse>() {
                 override fun success(response: Response<SimulationResponse>) {
                     simulationResponse.data.postValue(response.body()!!)

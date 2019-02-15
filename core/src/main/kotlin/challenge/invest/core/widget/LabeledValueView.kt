@@ -31,5 +31,4 @@ class LabeledValueView @JvmOverloads constructor(
     fun setText(nText: String) {
         textValue.text = nText
     }
-
 }
