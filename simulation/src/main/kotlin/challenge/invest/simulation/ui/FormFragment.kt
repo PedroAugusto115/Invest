@@ -78,7 +78,7 @@ class FormFragment : Fragment() {
         percentEditText.setValidationListener {
             when (it.toIntOrNull()) {
                 null -> false
-                else -> it.toInt() > 0
+                else -> true
             }
         }
 
@@ -120,7 +120,7 @@ class FormFragment : Fragment() {
     private fun shouldEnableButton() {
         simulateButton.isEnabled =
             (amountEditText.state.value == DefaultInputText.ValueState.VALID) and
-                    (dueDateEditText.state.value == DefaultInputText.ValueState.VALID)
+                    (dueDateEditText.state.value == DefaultInputText.ValueState.VALID) and
                     (percentEditText.state.value == DefaultInputText.ValueState.VALID)
     }
 
