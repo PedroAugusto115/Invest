@@ -8,6 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class SimulationResponse(
     @SerializedName("investmentParameter") val investmentParameter: InvestmentResponse,
     @SerializedName("grossAmount") val grossAmount: Float,
+    @SerializedName("taxesAmount") val taxesAmount: Float,
     @SerializedName("netAmount") val netAmount: Float,
     @SerializedName("grossAmountProfit") val grossAmountProfit: Float,
     @SerializedName("netAmountProfit") val netAmountProfit: Float,

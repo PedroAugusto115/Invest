@@ -1,14 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".ui.ResultFragment">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ResultFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="RESULT"/>
+            style="@style/textRegular.12"
+            android:id="@+id/txt_result_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frag_result_label"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+    <TextView
+            style="@style/textRegular.24"
+            android:id="@+id/txt_result_total_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="R$ 1.088,69"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_result_label"/>
+
+    <TextView
+            style="@style/textRegular.12"
+            android:id="@+id/txt_result_total_revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/frag_result_description"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_initial_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_result_total_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_initial_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_36dp"
+            android:label="@string/frag_result_lbl_initial_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_result_total_revenue"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_total_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_total_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_initial_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_revenue_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_revenue_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_total_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_tax_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_tax_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_revenue_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_net_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_net_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_tax_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_36dp"
+            android:label="@string/frag_result_lbl_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_net_value"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_counted_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_counted_days"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_date"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_monthly_revenue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_monthly_revenue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_counted_days"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_cdi_percent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_cdi_percent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_monthly_revenue"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_annual_revenue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_annual_revenue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_cdi_percent"/>
+
+    <challenge.invest.core.widget.LabeledValueView
+            android:id="@+id/lbl_period_profitability"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:label="@string/frag_result_lbl_period_profitability"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_annual_revenue"/>
+
+</android.support.constraint.ConstraintLayout>

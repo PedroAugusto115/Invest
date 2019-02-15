@@ -75,25 +75,7 @@ fun EditText.brazilianCurrencyFormat() {
 
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
-            this@brazilianCurrencyFormat.removeTextChangedListener(this)
-
-            val cleanString = s.toString()
-                .replace("R$", "")
-                .replace(",", "")
-                .replace(".", "")
-
-            val parsed = cleanString.toDouble()
-            var formatted = NumberFormat
-                .getCurrencyInstance(Locale("pt_BR", "BR"))
-                .format( parsed / HUNDRED )
-
-            formatted = formatted.run {
-                replaceRange(length - START_RANGE, length - END_RANGE, ",")
-            }
-
-            this@brazilianCurrencyFormat.setText(formatted)
-            this@brazilianCurrencyFormat.setSelection(formatted.length)
-            this@brazilianCurrencyFormat.addTextChangedListener(this)
+            //
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -101,7 +83,28 @@ fun EditText.brazilianCurrencyFormat() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            //
+            this@brazilianCurrencyFormat.removeTextChangedListener(this)
+
+            var formatted = ""
+            val cleanString = s.toString()
+                .replace("R$", "")
+                .replace(",", "")
+                .replace(".", "")
+
+            if (!cleanString.isEmpty()) {
+                val parsed = cleanString.toDouble()
+                formatted = NumberFormat
+                    .getCurrencyInstance(Locale("pt_BR", "BR"))
+                    .format(parsed / HUNDRED)
+
+                formatted = formatted.run {
+                    replaceRange(length - START_RANGE, length - END_RANGE, ",")
+                }
+            }
+
+            this@brazilianCurrencyFormat.setText(formatted)
+            this@brazilianCurrencyFormat.setSelection(formatted.length)
+            this@brazilianCurrencyFormat.addTextChangedListener(this)
         }
     })
 }
@@ -154,7 +157,6 @@ fun EditText.percentFormat() {
                 percent = percent.removeRange(PERCENT_MAX_LENGTH - 1, PERCENT_MAX_LENGTH)
             }
 
-            if (before == 0) percent += "%"
             this@percentFormat.setText(percent)
             this@percentFormat.setSelection(percent.length)
             this@percentFormat.addTextChangedListener(this)

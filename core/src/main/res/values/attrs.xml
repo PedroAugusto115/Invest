@@ -8,4 +8,8 @@
     <declare-styleable name="ViewToolbar">
         <attr name="android:text" />
     </declare-styleable>
+
+    <declare-styleable name="LabeledValueView">
+        <attr name="android:label" />
+    </declare-styleable>
 </resources>

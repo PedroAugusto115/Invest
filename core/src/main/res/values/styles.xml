@@ -8,7 +8,11 @@
     </style>
 
     <style name="textRegular">
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/light_gray</item>
+    </style>
+
+    <style name="textRegular.12">
+        <item name="android:textSize">@dimen/dimen_12sp</item>
     </style>
 
     <style name="textRegular.16">

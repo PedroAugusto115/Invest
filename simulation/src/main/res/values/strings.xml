@@ -11,4 +11,19 @@
     <string name="frag_form_percent_hint">100%</string>
     <string name="frag_form_button_text">Simular</string>
 
+    <!-- Result Fragment strings -->
+    <string name="frag_result_label">Resultado da simulação</string>
+    <string name="frag_result_description">Rendimento total de %s</string>
+    <string name="frag_result_lbl_initial_value">Valor aplicado inicialmente</string>
+    <string name="frag_result_lbl_total_value">Valor bruto do investimento</string>
+    <string name="frag_result_lbl_revenue_value">Valor do rendimento</string>
+    <string name="frag_result_lbl_tax_value">IR sobre o investimento</string>
+    <string name="frag_result_lbl_net_value">Valor líquido do invesimento</string>
+    <string name="frag_result_lbl_date">Data de resgate</string>
+    <string name="frag_result_lbl_counted_days">Dias corridos</string>
+    <string name="frag_result_lbl_monthly_revenue">Rendimento mensal</string>
+    <string name="frag_result_lbl_cdi_percent">Percentual do CDI do investimento</string>
+    <string name="frag_result_lbl_annual_revenue">Rentabilidade anual</string>
+    <string name="frag_result_lbl_period_profitability">Rentabilidade do período</string>
+    <string name="frag_result_btn_again">Simular novamente</string>
 </resources>
