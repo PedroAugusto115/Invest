@@ -44,6 +44,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/guideline"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.6"/>
+            app:layout_constraintGuide_percent="0.59"/>
 
 </merge>

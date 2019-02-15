@@ -51,6 +51,19 @@ class MainActivityTest : BaseInstrumentedTest(MainActivity::class) {
         }
     }
 
+    @Test
+    fun shouldBackToForm_whenClickInReturn() {
+        main {
+            fillFieldsCorrectly()
+            enqueueSimulationResponse()
+            hideKeyboard()
+            clickSimulateButton()
+            clickBackButton()
+        } should {
+            formIsVisible()
+        }
+    }
+
     private fun main(func: MainActivityRobot.() -> Unit): MainActivityRobot {
         server.start()
         setupServerUrl()
@@ -77,6 +90,10 @@ class MainActivityRobot(
 
     fun clickSimulateButton() {
         simR.id.frag_form_button.clickInId()
+    }
+
+    fun clickBackButton() {
+        simR.id.frag_result_button.clickInId()
     }
 
     fun hideKeyboard() {
