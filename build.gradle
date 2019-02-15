@@ -47,10 +47,12 @@ allprojects {
 
 subprojects {
     apply from: "$rootDir/tools/kotlin-files.gradle"
+    apply from: "$rootDir/tools/jacoco.gradle"
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+apply from: "$rootDir/tools/jacocoMergeReport.gradle"
 apply from: "$rootDir/tools/detekt.gradle"

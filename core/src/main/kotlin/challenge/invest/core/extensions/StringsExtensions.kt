@@ -21,7 +21,6 @@ fun String.toDate(input: String, output: String): String {
 
 fun String.isValidDate() = try {
     val typedDate = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR")).parse(this)
-
     typedDate > Date()
 } catch (ex: Exception) {
     false

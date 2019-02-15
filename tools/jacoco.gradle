@@ -1,0 +1,50 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "${core.jacoco}"
+}
+
+afterEvaluate {
+    android {
+        buildTypes {
+            debug {
+                testCoverageEnabled true
+            }
+        }
+    }
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugCoverageReport"]) {
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    final fileFilter = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/*$ViewInjector*.*',
+            '**/*$ViewBinder*.*',
+            '**/BuildConfig.*',
+            '**/Manifest*.*',
+            '**/*$Lambda$*.*',
+            '**/*$inlined$*.*',
+            '**/model/**.*',
+            '**/SplashScreenActivity*.*',
+            '**/*Test*.*',
+            '**/_$_*.*',
+            'android/**/*.*',
+            '**/*$[0-9].*'
+    ]
+
+    final debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
+    classDirectories = files([debugTree])
+
+    final mainSrc = 'src/main/kotlin'
+    sourceDirectories = files([mainSrc])
+    executionData = fileTree(dir: project.buildDir, includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/Debug/*coverage.ec"
+    ])
+}
