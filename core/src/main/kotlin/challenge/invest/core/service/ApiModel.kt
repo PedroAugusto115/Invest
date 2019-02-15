@@ -1,4 +1,4 @@
-package challenge.invest.simulation.service
+package challenge.invest.core.service
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

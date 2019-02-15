@@ -10,7 +10,7 @@ import okhttp3.mockwebserver.MockWebServer
 @RestrictTo(RestrictTo.Scope.TESTS)
 abstract class BaseInstrumentedTest(kClass: KClass<out AppCompatActivity>) {
 
-    var server: MockWebServer? = MockWebServer()
+    var server: MockWebServer = MockWebServer()
 
     @get:Rule
     val activityRule = ActivityTestRule(kClass.java, false, false)

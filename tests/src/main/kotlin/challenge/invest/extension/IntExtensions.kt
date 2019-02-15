@@ -31,25 +31,10 @@ fun Int.isEnabled() = onView(withId(this)).check(matches(ViewMatchers.isEnabled(
 fun Int.hasText(text: String) = onView(withId(this)).check(matches(withText(text)))
 
 @RestrictTo(RestrictTo.Scope.TESTS)
-fun Int.clickInText() = onView(withText(this)).perform(ViewActions.click())
-
-@RestrictTo(RestrictTo.Scope.TESTS)
 fun Int.clickInId() = onView(withId(this)).perform(ViewActions.click())
 
 @RestrictTo(RestrictTo.Scope.TESTS)
-fun Int.scrollToText() = onView(withText(this)).perform(ViewActions.scrollTo())
-
-@RestrictTo(RestrictTo.Scope.TESTS)
-fun Int.scrollToId() = onView(withId(this)).perform(ViewActions.scrollTo())
-
-@RestrictTo(RestrictTo.Scope.TESTS)
 fun Int.isTextDisplayed() = onView(withText(this)).check(matches(ViewMatchers.isDisplayed()))
-
-@RestrictTo(RestrictTo.Scope.TESTS)
-fun Int.textDoesNotExists() = onView(withText(this)).check(ViewAssertions.doesNotExist())
-
-@RestrictTo(RestrictTo.Scope.TESTS)
-fun Int.hasTextColor(color: Int) = onView(withId(this)).check(matches(ViewMatchers.hasTextColor(color)))
 
 @RestrictTo(RestrictTo.Scope.TESTS)
 fun Int.typeText(message: String) = onView(withId(this)).perform(ViewActions.typeText(message))
@@ -60,3 +45,7 @@ fun Int.cleanText() = onView(withId(this)).perform(ViewActions.clearText())
 @RestrictTo(RestrictTo.Scope.TESTS)
 fun Int.typeTextInChild(childId: Int, message: String) = onView(allOf(withId(childId), withParent(withId(this))))
         .perform(ViewActions.typeText(message))
+
+@RestrictTo(RestrictTo.Scope.TESTS)
+fun Int.clearTextInChild(childId: Int) = onView(allOf(withId(childId), withParent(withId(this))))
+        .perform(ViewActions.clearText())

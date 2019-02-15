@@ -1,4 +1,4 @@
-package challenge.invest.simulation.service
+package challenge.invest.core.service
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

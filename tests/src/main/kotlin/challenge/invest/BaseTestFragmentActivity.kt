@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.support.annotation.RestrictTo
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import challenge.invest.extension.BaseViewModel
 import challenge.investtests.R
 
 @RestrictTo(RestrictTo.Scope.TESTS)
-class BaseTestFragmentActivity : AppCompatActivity() {
-
-    lateinit var baseViewModel: BaseViewModel
+open class BaseTestFragmentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
